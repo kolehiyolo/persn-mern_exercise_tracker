@@ -29,7 +29,7 @@ router.route('/add').post(
       .then(() => res.json('Exercise added!'))
       .catch(err => res.status(400).json(`Error: ${err}`));
   }
-)
+);
 
 router.route('/:id').get(
   (req,res) => {
@@ -37,7 +37,7 @@ router.route('/:id').get(
       .then(exercise => res.json(exercise))
       .catch(err => res.status(400).json(`Error: ${err}`));
   }
-)
+);
 
 router.route('/:id').delete(
   (req,res) => {
@@ -45,7 +45,7 @@ router.route('/:id').delete(
       .then(() => res.json('Exercise deleted.'))
       .catch(err => res.status(400).json(`Error: ${err}`));
   }
-)
+);
 
 router.route('/update/:id').post(
   (req, res) => {
@@ -64,6 +64,6 @@ router.route('/update/:id').post(
       )
       .catch(err => res.status(400).json(`Error: ${err}`));
   }
-)
+);
 
 module.exports = router;

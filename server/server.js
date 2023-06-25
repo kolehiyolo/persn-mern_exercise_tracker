@@ -16,9 +16,11 @@ mongoose.connect(uri, {
   // useCreateIndex: true
 })
 const connection = mongoose.connection;
-connection.once('open', () => {
-  console.log(`MongoDB database connection established successfully`); 
-});
+connection.once('open', 
+  () => {
+    console.log(`MongoDB database connection established successfully`); 
+  }
+);
 
 const exercisesRouter = require('./routes/exercises.js');
 const usersRouter = require('./routes/users.js');
@@ -26,6 +28,8 @@ const usersRouter = require('./routes/users.js');
 app.use('/exercises', exercisesRouter);
 app.use('/users', usersRouter);
 
-app.listen(port, () => {
-  console.log(`Server is running on port: ${port}`); 
-})
+app.listen(port, 
+  () => {
+    console.log(`Server is running on port: ${port}`); 
+  }
+);
