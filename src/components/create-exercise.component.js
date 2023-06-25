@@ -48,8 +48,8 @@ export default function CreateExercise() {
     <div>
       <h3>Create New Exercise Log</h3>
       <form>
-        <div className="form-group">
-          <label>Username: </label>
+        <div className="mb-3">
+          <label className="form-label">Username: </label>
           <select 
             className="form-control"
             value={newExercise.username}
@@ -72,8 +72,8 @@ export default function CreateExercise() {
             }
           </select>
         </div>
-        <div className="form-group">
-          <label>Description: </label>
+        <div className="mb-3">
+          <label className="form-label">Description: </label>
           <textarea
             className="form-control"
             required
@@ -83,8 +83,8 @@ export default function CreateExercise() {
             value={newExercise.description}
           />
         </div>
-        <div className="form-group">
-          <label>Duration: </label>
+        <div className="mb-3">
+          <label className="form-label">Duration: </label>
           <input
             className="form-control"
             required
@@ -94,14 +94,17 @@ export default function CreateExercise() {
             value={newExercise.duration}
           />
         </div>
-        <div className="form-group">
-          <label>Date: </label>
+        <div className="mb-3">
+          <label className="form-label">Date: </label>
+          <br />
           <DatePicker
             selected={newExercise.date} 
             onChange={onChangeDate}
           />
         </div>
-        <button onClick={onSubmit}>Submit</button>
+        <div className="mb-3">
+          <button className="btn btn-primary" onClick={onSubmit}>Submit</button>
+        </div>
       </form>
     </div>
   );
