@@ -21,16 +21,20 @@ export default function CreateExercise() {
 
     console.log(`${name} = ${value}`); 
 
-    setNewExercise(prevValue => {
-      return {...prevValue, [name]: value};
-    })
-  }
+    setNewExercise(
+      prevValue => {
+        return {...prevValue, [name]: value};
+      }
+    );
+  };
 
   function onChangeDate(date) {
-    setNewExercise(prevValue => {
-      return {...prevValue, 'date': date};
-    })
-  }
+    setNewExercise(
+      prevValue => {
+        return {...prevValue, 'date': date};
+      }
+    );
+  };
 
   function onSubmit(event) {
     event.preventDefault();
@@ -38,7 +42,7 @@ export default function CreateExercise() {
     console.log(newExercise); 
 
     window.location = '/';
-  }
+  };
 
   return (
     <div>
