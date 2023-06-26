@@ -91,7 +91,7 @@ export default function EditExercise() {
 
   return (
     <div>
-      <h3>Create New Exercise Log</h3>
+      <h3>Edit Exercise Log</h3>
       <form>
         <div className="mb-3">
           <label className="form-label">Username: </label>
