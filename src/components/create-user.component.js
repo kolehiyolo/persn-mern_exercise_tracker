@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import axios from 'axios';
 
 export default function CreateUser() {
   const [newUser, setNewUser] = useState(
@@ -21,6 +22,14 @@ export default function CreateUser() {
     event.preventDefault();
 
     console.log(newUser); 
+
+    axios.post('http://localhost:5000/users/add', newUser)
+      .then(
+        res => console.log(res.data)
+      )
+      .catch(
+        err => res.status(400).json(`Error: ${err}`)
+      );
 
     setNewUser(
       {

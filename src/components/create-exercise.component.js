@@ -1,11 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+
+import axios from 'axios';
 
 export default function CreateExercise() {
   const [newExercise, setNewExercise] = useState(
     {
-      username: 'test user',
+      username: '',
       description: '',
       duration: 0,
       date: new Date(),
@@ -13,8 +15,21 @@ export default function CreateExercise() {
   );
 
   const [users, setUsers] = useState(
-    ['test user']
+    ['']
   );
+
+  useEffect(
+    () => {
+      axios.get('http://localhost:5000/users')
+      .then(
+        res => setUsers(res.data.map(item => item.username))
+      )
+      .catch(
+        err => res.status(400).json(`Error: ${err}`)
+      )  
+    },
+    []
+  );  
   
   function onInputChange(event) {
     const {name, value} = event.target;
@@ -41,7 +56,22 @@ export default function CreateExercise() {
 
     console.log(newExercise); 
 
-    window.location = '/';
+    axios.post('http://localhost:5000/exercises/add', newExercise)
+      .then(
+        res => console.log(res.data)
+      )
+      .catch(
+        err => res.status(400).json(`Error: ${err}`)
+      );
+
+    setNewExercise(
+      {
+        username: '',
+        description: '',
+        duration: 0,
+        date: new Date(),
+      }
+    );
   };
 
   return (
@@ -54,6 +84,7 @@ export default function CreateExercise() {
             className="form-control"
             value={newExercise.username}
             onChange={onInputChange}
+            name="username"
             required
           >
             {
