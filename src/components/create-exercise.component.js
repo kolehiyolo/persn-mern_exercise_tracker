@@ -54,6 +54,7 @@ export default function CreateExercise() {
   function onSubmit(event) {
     event.preventDefault();
 
+    console.log(`onSubmit()`); 
     console.log(newExercise); 
 
     axios.post('http://localhost:5000/exercises/add', newExercise)
@@ -61,7 +62,10 @@ export default function CreateExercise() {
         res => console.log(res.data)
       )
       .catch(
-        err => res.status(400).json(`Error: ${err}`)
+        err => {
+          console.log('ERRORRRRR')
+          res.status(400).json(`Error: ${err}`)
+        }
       );
 
     setNewExercise(

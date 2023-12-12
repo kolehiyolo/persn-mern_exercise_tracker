@@ -11,6 +11,7 @@ router.route('/').get(
 
 router.route('/add').post(
   (req, res) => {
+    console.log(req.body);
     const username = req.body.username;
     const description = req.body.description;
     const duration = Number(req.body.duration);
@@ -24,6 +25,8 @@ router.route('/add').post(
         date
       }
     );
+
+    console.log(newExercise)
 
     newExercise.save()
       .then(() => res.json('Exercise added!'))
