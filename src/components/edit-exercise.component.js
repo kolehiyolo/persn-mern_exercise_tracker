@@ -22,7 +22,7 @@ export default function EditExercise() {
 
   useEffect(
     () => {
-      axios.get('http://localhost:5000/users')
+      axios.get('http://localhost:2000/users')
         .then(
           res => setUsers(res.data.map(item => item.username))
         )
@@ -30,7 +30,7 @@ export default function EditExercise() {
           err => res.status(400).json(`Error: ${err}`)
         );
 
-      axios.get(`http://localhost:5000/exercises/${urlID}`)
+      axios.get(`http://localhost:2000/exercises/${urlID}`)
         .then(
           res => setNewExercise(
             {
@@ -71,7 +71,7 @@ export default function EditExercise() {
 
     console.log(newExercise); 
 
-    axios.post(`http://localhost:5000/exercises/update/${urlID}`, newExercise)
+    axios.post(`http://localhost:2000/exercises/update/${urlID}`, newExercise)
       .then(
         res => console.log(res.data)
       )

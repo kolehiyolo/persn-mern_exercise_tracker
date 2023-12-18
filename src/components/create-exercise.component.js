@@ -20,7 +20,7 @@ export default function CreateExercise() {
 
   useEffect(
     () => {
-      axios.get('http://localhost:5000/users')
+      axios.get('http://localhost:2000/users')
       .then(
         res => setUsers(res.data.map(item => item.username))
       )
@@ -57,7 +57,7 @@ export default function CreateExercise() {
     console.log(`onSubmit()`); 
     console.log(newExercise); 
 
-    axios.post('http://localhost:5000/exercises/add', newExercise)
+    axios.post('http://localhost:2000/exercises/add', newExercise)
       .then(
         res => console.log(res.data)
       )

@@ -23,7 +23,7 @@ export default function CreateUser() {
 
     console.log(newUser); 
 
-    axios.post('http://localhost:5000/users/add', newUser)
+    axios.post('http://localhost:2000/users/add', newUser)
       .then(
         res => console.log(res.data)
       )

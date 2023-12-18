@@ -14,7 +14,7 @@ export default function ExercisesList() {
 
   function fetchExercises() {
     console.log(`fetchExercises()`); 
-    axios.get('http://localhost:5000/exercises')
+    axios.get('http://localhost:2000/exercises')
       .then(
         res => setExercises(res.data)
       )
@@ -24,7 +24,7 @@ export default function ExercisesList() {
   };
 
   function deleteExercise(id) {
-    axios.delete(`http://localhost:5000/exercises/${id}`)
+    axios.delete(`http://localhost:2000/exercises/${id}`)
       .then(
         res => {
           console.log(res.data);
